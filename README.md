@@ -76,6 +76,45 @@ sudo dmesg | tail -5
 
 ---
 
+### printk
+
+```
+#define KERN_EMERG "<0>"   /* system is unusable                */
+#define KERN_ALERT "<1>"   /* action must be taken immediately    */
+#define KERN_CRIT "<2>"    /* critical conditions     */
+#define KERN_ERR "<3>"     /* error conditions            */
+#define KERN_WARNING "<4>" /* warning conditions      */
+#define KERN_NOTICE "<5>"  /* normal but significant condition    */
+#define KERN_INFO "<6>"    /* informational           */
+#define KERN_DEBUG "<7>"   /* debug-level messages        */
+
+printk(KERN_ALERT "hello driver\n");
+```
+
+---
+
+### cdev
+
+建構一個屬於該dev的虛擬點
+
+最後` grep mydev /proc/devices | awk '{print $1;}' `是你裝置的Major number
+
+```
+$sudo mknod --mode=666 /dev/mydev0 c `grep mydev /proc/devices | awk '{print $1;}'` 0
+```
+
+也可以在程式中自動註冊。
+
+----
+
+### Debug
+
+
+
+---
+
+ref:<http://opensourceforu.com/tag/linux-device-drivers-series/page/2/>
+
 
 
 
