@@ -1,9 +1,16 @@
-CFILES := hello.c
+MODULE_NAME = hello_module
 
-obj-m := hello.o
+SRC := ./src/hello.c 
+
+# Path to target Linux Kernel
+KDIR := /lib/modules/$(shell uname -r)/build # <--- Fill in with path to kernel you're compiling against
+
+$(MODULE_NAME)-objs = $(SRC:.c=.o)
+
+obj-m       := $(MODULE_NAME).o
+PWD := $(shell pwd)
+
+#EXTRA_CFLAGS := -I$(PWD)/src -I$(PWD)/include
 
 all:
-	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
-
-clean:
-	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+	$(MAKE) -C $(KDIR) M=$(PWD) modules
