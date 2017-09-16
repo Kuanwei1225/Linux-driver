@@ -69,6 +69,7 @@ if (!dev->inte_out_endpointAddr &&
 ### reference
 
 <http://elixir.free-electrons.com/linux/v4.10/source/drivers/usb/usb-skeleton.c>
+
 <http://elixir.free-electrons.com/linux/v4.10/source/drivers/hid/usbhid/usbmouse.c#L64>
 
 
