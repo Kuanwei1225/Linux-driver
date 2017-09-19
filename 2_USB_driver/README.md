@@ -58,7 +58,7 @@ if (!dev->inte_out_endpointAddr &&
 
 ### read/write
 
-在這裡因我使用的裝置式手柄，因此將寫入的函式刪除了。需要注意的為`usb_rcvintpipe`，跟剛剛的傳輸形式有關原始碼用的式bulk在此改為interrupt。在read中可以直接使用`usb_interrupt_msg`此函式將urb包在裡面，若資訊量不多可直接使用。
+在這裡因我使用的裝置為遊戲手柄，因此將寫入的函式刪除了。需要注意的為`usb_rcvintpipe`，跟剛剛的傳輸形式有關原始碼用的式bulk在此改為interrupt。在read中可以直接使用`usb_interrupt_msg`此函式將urb包在裡面，若資訊量不多可直接使用。
 
 ### 結語
 
